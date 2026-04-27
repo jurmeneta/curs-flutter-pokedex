@@ -7,6 +7,7 @@ class Example14PatternMatchingScreen extends StatelessWidget {
     return switch (level) {
       < 10 => 'beginner',
       >= 10 && < 50 => 'medium',
+      >= 50 && < 70 => 'advanced',
       _ => 'strong',
     };
   }
@@ -14,7 +15,7 @@ class Example14PatternMatchingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
-    final samples = [5, 25, 80];
+    final samples = [5, 25, 60, 80];
 
     return Scaffold(
       appBar: AppBar(title: const Text('Pattern matching')),

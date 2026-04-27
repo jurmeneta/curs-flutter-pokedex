@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class PokemonName extends StatelessWidget {
-  const PokemonName({super.key, required this.name});
+  const PokemonName({super.key, this.name});
 
-  final String name;
+  final String? name;
 
   @override
   Widget build(BuildContext context) {
-    return Text(name, style: Theme.of(context).textTheme.titleLarge);
+    return Text(
+      name ?? 'No name',
+      style: Theme.of(context).textTheme.titleLarge,
+    );
   }
 }
 

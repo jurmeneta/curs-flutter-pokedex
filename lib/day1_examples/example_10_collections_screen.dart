@@ -9,7 +9,7 @@ class Example10CollectionsScreen extends StatelessWidget {
     final starters = ['Bulbasaur', 'Charmander', 'Squirtle'];
     final withPikachu = [...starters, 'Pikachu'];
     final stats = {'hp': 35, 'attack': 55};
-    final strong = [10, 25, 50, 75].where((level) => level >= 50).toList();
+    final strong = [10, 25, 50, 75].where((level) => level >= 25).toList();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Col·leccions')),
@@ -36,7 +36,7 @@ class Example10CollectionsScreen extends StatelessWidget {
                   const Divider(height: 32),
                   Text("stats['attack']", style: theme.titleSmall),
                   const SizedBox(height: 8),
-                  Text('${stats['attack']}', style: theme.headlineSmall),
+                  Text('${stats['hp']}', style: theme.headlineSmall),
                   const Divider(height: 32),
                   Text('.where((n) => n >= 50)', style: theme.titleSmall),
                   const SizedBox(height: 8),

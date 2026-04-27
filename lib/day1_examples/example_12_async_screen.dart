@@ -13,7 +13,7 @@ class _Example12AsyncScreenState extends State<Example12AsyncScreen> {
 
   Future<String> _fetchPokemonName() async {
     await Future<void>.delayed(const Duration(milliseconds: 600));
-    return 'Mewtwo';
+    return 'MewtwoNew';
   }
 
   Future<void> _load() async {
