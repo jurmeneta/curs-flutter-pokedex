@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Example07VariablesScreen extends StatelessWidget {
-  const Example07VariablesScreen({super.key});
+class VariablesScreen extends StatelessWidget {
+  const VariablesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

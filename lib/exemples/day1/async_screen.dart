@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Example12AsyncScreen extends StatefulWidget {
-  const Example12AsyncScreen({super.key});
+class AsyncScreen extends StatefulWidget {
+  const AsyncScreen({super.key});
 
   @override
-  State<Example12AsyncScreen> createState() => _Example12AsyncScreenState();
+  State<AsyncScreen> createState() => _AsyncScreenState();
 }
 
-class _Example12AsyncScreenState extends State<Example12AsyncScreen> {
+class _AsyncScreenState extends State<AsyncScreen> {
   bool _loading = false;
   String? _result;
 

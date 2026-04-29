@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Example08VarFinalConstLateScreen extends StatelessWidget {
-  const Example08VarFinalConstLateScreen({super.key});
+class VarFinalScreen extends StatelessWidget {
+  const VarFinalScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

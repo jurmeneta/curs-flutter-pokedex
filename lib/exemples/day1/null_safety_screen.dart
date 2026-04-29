@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Example09NullSafetyScreen extends StatelessWidget {
-  const Example09NullSafetyScreen({super.key});
+class NullSafetyScreen extends StatelessWidget {
+  const NullSafetyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

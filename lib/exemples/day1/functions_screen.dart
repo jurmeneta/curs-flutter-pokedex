@@ -6,8 +6,8 @@ class PokeEntry {
   final int dexNumber;
 }
 
-class Example11FunctionsScreen extends StatelessWidget {
-  const Example11FunctionsScreen({super.key});
+class FunctionsScreen extends StatelessWidget {
+  const FunctionsScreen({super.key});
 
   String _formatPokemon(String name, int level) {
     return '$name (level $level)';

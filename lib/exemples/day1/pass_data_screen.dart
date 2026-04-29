@@ -14,8 +14,8 @@ class PokemonName extends StatelessWidget {
   }
 }
 
-class Example05PassDataScreen extends StatelessWidget {
-  const Example05PassDataScreen({super.key});
+class PassDataScreen extends StatelessWidget {
+  const PassDataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

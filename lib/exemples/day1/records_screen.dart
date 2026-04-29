@@ -6,8 +6,8 @@ class Pokemon {
   final int hp;
 }
 
-class Example13RecordsScreen extends StatelessWidget {
-  const Example13RecordsScreen({super.key});
+class RecordsScreen extends StatelessWidget {
+  const RecordsScreen({super.key});
 
   ({String name, int hp}) _getPokemon() {
     return (name: 'Snorlax', hp: 160);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Example14PatternMatchingScreen extends StatelessWidget {
-  const Example14PatternMatchingScreen({super.key});
+class PatternMatchingScreen extends StatelessWidget {
+  const PatternMatchingScreen({super.key});
 
   String _describeLevel(int level) {
     return switch (level) {

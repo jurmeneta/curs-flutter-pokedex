@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Example10CollectionsScreen extends StatelessWidget {
-  const Example10CollectionsScreen({super.key});
+class CollectionsScreen extends StatelessWidget {
+  const CollectionsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
