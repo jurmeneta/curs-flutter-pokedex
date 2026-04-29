@@ -50,7 +50,7 @@ class _TopBarScreenState extends State<TopBarScreen> {
 class _Lvl2Screen extends StatelessWidget {
   const _Lvl2Screen();
 
-  static const String _missatgeAlPop = 'Tornat des de segon nivell';
+  static const String _missatgeAlPop = 'Arnau';
 
   @override
   Widget build(BuildContext context) {

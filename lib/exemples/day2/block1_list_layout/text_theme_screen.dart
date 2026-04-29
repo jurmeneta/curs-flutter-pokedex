@@ -71,10 +71,12 @@ class TextThemeScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Theme(
             data: baseTheme.copyWith(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color.fromARGB(255, 194, 0, 32),
+              ),
               textTheme: baseTheme.textTheme.copyWith(
                 bodyMedium: baseTheme.textTheme.bodyMedium?.copyWith(
-                  fontSize: 14,
+                  fontSize: 25,
                 ),
               ),
             ),

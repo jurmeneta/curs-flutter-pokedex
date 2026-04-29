@@ -20,6 +20,7 @@ class StackBadgeScreen extends StatelessWidget {
               const SizedBox(height: 12),
               Stack(
                 alignment: Alignment.bottomRight,
+                clipBehavior: Clip.none,
                 children: [
                   const CircleAvatar(
                     radius: 48,
@@ -44,16 +45,20 @@ class StackBadgeScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(6),
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.star,
-                      size: 18,
-                      color: Colors.white,
+                  Positioned(
+                    top: -10,
+                    left: 0,
+                    child: Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: const BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.star,
+                        size: 18,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -77,8 +82,8 @@ class StackBadgeScreen extends StatelessWidget {
                     ),
                     const Center(child: Text('Àrea de sprite')),
                     Positioned(
-                      top: 8,
-                      right: 8,
+                      bottom: 8,
+                      left: 8,
                       child: Text(
                         '#025',
                         style: TextStyle(

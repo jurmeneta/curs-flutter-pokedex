@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/features/home/presentation/home_screen.dart';
+import 'package:pokedex/features/home/presentation/home_screen.dart'; // ignore: unused_import
 
 import 'exemples/day1/day1_hub_screen.dart'; // ignore: unused_import
 import 'exemples/day2/day2_hub_screen.dart'; // ignore: unused_import
@@ -14,8 +14,8 @@ class PokedexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: const Day2HubScreen(),
-      home: const HomeScreen(),
+      home: const Day2HubScreen(),
+      // home: const HomeScreen(),
     );
   }
 }
