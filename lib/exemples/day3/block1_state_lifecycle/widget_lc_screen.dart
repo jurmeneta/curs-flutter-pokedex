@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
+const _kLifecycleLines = <String>[
+  'createState() — al StatefulWidget: crea l’objecte State (sense efectes).',
+  'initState() — un cop insertat a l’arbre; inicialitzacions.',
+  'didChangeDependencies() — quan canvien dependències InheritedWidget.',
+  'build() — construeix l’UI.',
+  'didUpdateWidget() — nous paràmetres del mateix tipus de widget del pare.',
+  'deactivate() — el widget deixa temporalment de ser al arbre.',
+  'dispose() — baixa definitiva; alliberar timers, subscriptions…',
+];
+
 class WidgetLcScreen extends StatefulWidget {
   const WidgetLcScreen({super.key});
 
@@ -9,29 +19,6 @@ class WidgetLcScreen extends StatefulWidget {
 
 class _WidgetLcScreenState extends State<WidgetLcScreen> {
   int _counter = 0;
-
-  static const _kLifecycleLines = <String>[
-    'createState() — al StatefulWidget: crea l’objecte State (sense efectes).',
-    'initState() — un cop insertat a l’arbre; inicialitzacions.',
-    'didChangeDependencies() — quan canvien dependències InheritedWidget.',
-    'build() — construeix l’UI.',
-    'didUpdateWidget() — nous paràmetres del mateix tipus de widget del pare.',
-    'deactivate() — el widget deixa temporalment de ser al arbre.',
-    'dispose() — baixa definitiva; alliberar timers, subscriptions…',
-  ];
-
-  Widget _bullet(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('• '),
-          Expanded(child: Text(text)),
-        ],
-      ),
-    );
-  }
 
   @override
   void initState() {
@@ -55,12 +42,17 @@ class _WidgetLcScreenState extends State<WidgetLcScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text(
-            'Ordre habitual',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text('Ordre', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
-          ..._kLifecycleLines.map(_bullet),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (var i = 0; i < _kLifecycleLines.length; i++) ...[
+                if (i > 0) const SizedBox(height: 12),
+                Text('${i + 1}. ${_kLifecycleLines[i]}'),
+              ],
+            ],
+          ),
           const SizedBox(height: 20),
           Text('setState', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),

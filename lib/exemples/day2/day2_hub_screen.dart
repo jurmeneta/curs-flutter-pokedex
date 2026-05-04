@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'block1_list_layout/b1_hub_screen.dart';
 import 'block2_navigation/b2_hub_screen.dart';
-import 'block3_state_lifecycle/b3_hub_screen.dart';
 import 'widgets/root_hub.dart';
 
 class Day2HubScreen extends StatelessWidget {
@@ -24,12 +23,6 @@ class Day2HubScreen extends StatelessWidget {
           title: 'Navegació',
           subtitle: 'Top · bottom · side · Navigator amb screen stack',
           screen: Day2B2HubScreen(),
-        ),
-        Day2HubSection(
-          badge: '3',
-          title: 'Estat i lifecycles',
-          subtitle: 'StatefulWidget lifecycle, AppLifecycleState',
-          screen: Day2B3HubScreen(),
         ),
       ],
     );

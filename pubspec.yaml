@@ -13,8 +13,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  shared_preferences: ^2.5.5
 
-dev_dependencies:
+dev_dependencies: 
   flutter_test:
     sdk: flutter
 
@@ -26,3 +27,14 @@ flutter:
 
   assets:
     - assets/images/
+    
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
+        - asset: fonts/Lato-Bold.ttf
+          weight: 700
+
+    - family: PokemonGb
+      fonts:
+        - asset: fonts/PokemonGb-RAeo.ttf

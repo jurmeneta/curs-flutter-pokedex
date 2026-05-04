@@ -9,6 +9,7 @@ import 'functions_screen.dart';
 import 'async_screen.dart';
 import 'records_screen.dart';
 import 'pattern_matching_screen.dart';
+import 'enhanced_enums_screen.dart';
 import 'widgets/root_hub.dart';
 
 /// Punt d’entrada dels exemples del dia 1.
@@ -62,8 +63,13 @@ class Day1HubScreen extends StatelessWidget {
         ),
         Day1DemoItem(
           title: 'Pattern matching',
-          subtitle: 'switch com a expressió',
+          subtitle: 'switch com a expressió amb intervals',
           screen: PatternMatchingScreen(),
+        ),
+        Day1DemoItem(
+          title: 'Enums',
+          subtitle: 'Enum simple i enum avançat',
+          screen: EnhancedEnumsScreen(),
         ),
       ],
     );
