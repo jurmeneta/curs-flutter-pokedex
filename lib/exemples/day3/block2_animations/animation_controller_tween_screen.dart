@@ -47,17 +47,25 @@ class _AnimationControllerTweenScreenState
     final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(title: const Text('Controller i Tween')),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          if (_forwardNext) {
-            _controller.forward(from: 0);
-          } else {
-            _controller.reverse(from: 1);
-          }
-          setState(() => _forwardNext = !_forwardNext);
+      floatingActionButton: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) {
+          return Transform.translate(
+            offset: Offset(_widthFactor.value * 100 - 50, 0),
+            child: FloatingActionButton.extended(
+              onPressed: () {
+                if (_forwardNext) {
+                  _controller.forward(from: 0);
+                } else {
+                  _controller.reverse(from: 1);
+                }
+                setState(() => _forwardNext = !_forwardNext);
+              },
+              icon: Icon(_forwardNext ? Icons.arrow_forward : Icons.arrow_back),
+              label: Text(_forwardNext ? 'Endavant' : 'Enrere'),
+            ),
+          );
         },
-        icon: Icon(_forwardNext ? Icons.arrow_forward : Icons.arrow_back),
-        label: Text(_forwardNext ? 'Endavant' : 'Enrere'),
       ),
       body: Center(
         child: AnimatedBuilder(
