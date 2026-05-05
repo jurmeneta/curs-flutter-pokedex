@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>L’exemple Image picker necessita accés a la fototeca per triar una imatge.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>L’exemple Image picker necessita la càmera per fer una foto.</string>
 </dict>
 </plist>

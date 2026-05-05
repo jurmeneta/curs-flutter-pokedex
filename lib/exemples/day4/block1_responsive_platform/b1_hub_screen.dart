@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/block_hub.dart';
+import 'package:pokedex/exemples/day3/widgets/block_hub.dart';
 import 'adaptive_menus_screen.dart';
 import 'adaptive_navigation_shell_screen.dart';
 import 'media_query_inspector_screen.dart';
 import 'platform_pointer_scroll_screen.dart';
 import 'responsive_breakpoints_screen.dart';
 
-class Day3B4HubScreen extends StatelessWidget {
-  const Day3B4HubScreen({super.key});
+class Day4B1HubScreen extends StatelessWidget {
+  const Day4B1HubScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Day3BlockHub(
-      appBarTitle: 'Dia 3 · Bloc 4 · Web, escriptori i responsive',
+      appBarTitle: 'Web, escriptori i responsive',
       items: [
         Day3DemoItem(
           title: 'Breakpoints i LayoutBuilder',
