@@ -34,6 +34,16 @@ class Pokemon {
     this.imageUrl,
   });
 
+  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
+        id: json['id'] as int,
+        name: json['name'] as String,
+        type: PokemonType.values.byName(json['type'] as String),
+        hp: json['hp'] as int,
+        attack: json['attack'] as int,
+        defense: json['defense'] as int,
+        imageUrl: json['imageUrl'] as String?,
+      );
+
   final int id;
   final String name;
   final PokemonType type;
@@ -42,4 +52,14 @@ class Pokemon {
   final int defense;
 
   final String? imageUrl;
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'type': type.name,
+        'hp': hp,
+        'attack': attack,
+        'defense': defense,
+        'imageUrl': imageUrl,
+      };
 }

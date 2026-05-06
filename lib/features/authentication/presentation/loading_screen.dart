@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:pokedex/features/admin/presentation/admin_screen.dart';
 import 'package:pokedex/features/home/presentation/home_screen.dart';
 
 import 'loading_screen_controller.dart';
@@ -20,7 +22,8 @@ const _tipStyle = TextStyle(
   color: Color(0xFFB0BEC5),
 );
 
-Widget _defaultNextScreen(BuildContext context) => const HomeScreen();
+Widget _defaultNextScreen(BuildContext context) =>
+    kIsWeb ? const AdminScreen() : const HomeScreen();
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({
@@ -74,10 +77,10 @@ class _LoadingScreenState extends State<LoadingScreen>
   }
 
   Future<void> _runSequence() async {
-    final noWorkToAwait =
-        widget.readiness == null &&
-        widget.minimumDisplayDuration <= Duration.zero;
-    if (noWorkToAwait) {
+    final skipAnimation = kIsWeb ||
+        (widget.readiness == null &&
+            widget.minimumDisplayDuration <= Duration.zero);
+    if (skipAnimation) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         Navigator.of(context).pushReplacement(

@@ -1,13 +1,32 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../domain/pokemon_model.dart';
 
+const _kAdminPokemons = 'admin_pokemons';
+
 class AdminScreenController {
+  final _prefs = SharedPreferencesAsync();
   final List<Pokemon> pokemons = [];
 
-  void addPokemon(Pokemon pokemon) {
+  Future<void> loadPokemons() async {
+    final raw = await _prefs.getStringList(_kAdminPokemons);
+    if (raw == null) return;
+    pokemons
+      ..clear()
+      ..addAll(raw.map((e) => Pokemon.fromJson(jsonDecode(e) as Map<String, dynamic>)));
+  }
+
+  Future<void> addPokemon(Pokemon pokemon) async {
     pokemons.add(pokemon);
+    await _saveAll();
+  }
+
+  Future<void> _saveAll() async {
+    final encoded = pokemons.map((p) => jsonEncode(p.toJson())).toList();
+    await _prefs.setStringList(_kAdminPokemons, encoded);
   }
 
   Pokemon createPokemon({
