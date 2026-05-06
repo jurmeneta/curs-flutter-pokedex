@@ -25,7 +25,7 @@ Widget _defaultNextScreen(BuildContext context) => const HomeScreen();
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({
     super.key,
-    this.minimumDisplayDuration = const Duration(seconds: 18),
+    this.minimumDisplayDuration = Duration.zero,
     this.readiness,
     this.nextScreenBuilder = _defaultNextScreen,
   });
@@ -74,17 +74,29 @@ class _LoadingScreenState extends State<LoadingScreen>
   }
 
   Future<void> _runSequence() async {
+    final noWorkToAwait =
+        widget.readiness == null &&
+        widget.minimumDisplayDuration <= Duration.zero;
+    if (noWorkToAwait) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(builder: widget.nextScreenBuilder),
+        );
+      });
+      return;
+    }
+
     await _intro.forward();
     if (!mounted) return;
     setState(_logic.enterLoop);
 
-    _tipTimer = Timer.periodic(
-      LoadingScreenController.tipRotationInterval,
-      (_) {
-        if (!mounted) return;
-        setState(_logic.advanceTip);
-      },
-    );
+    _tipTimer = Timer.periodic(LoadingScreenController.tipRotationInterval, (
+      _,
+    ) {
+      if (!mounted) return;
+      setState(_logic.advanceTip);
+    });
 
     await Future.wait<void>([
       Future<void>.delayed(widget.minimumDisplayDuration),

@@ -17,8 +17,8 @@ class PokedexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Day4HubScreen(),
-      //home: const LoadingScreen(),
+      // home: const Day4HubScreen(),
+      home: const LoadingScreen(),
     );
   }
 }

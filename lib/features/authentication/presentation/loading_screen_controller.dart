@@ -22,7 +22,7 @@ class LoadingScreenController {
   final List<String> _tips;
 
   static const tipRotationInterval = Duration(milliseconds: 4200);
-  static const outroPauseBeforeNavigate = Duration(milliseconds: 950);
+  static const outroPauseBeforeNavigate = Duration.zero;
 
   LoadingPhase phase = LoadingPhase.intro;
   int _tipIndex = 0;

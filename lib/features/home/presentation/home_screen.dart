@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/cards/pokemon_card.dart';
-import 'home_screen_controller.dart';
+import '../../admin/presentation/admin_screen.dart';
+import '../../map/presentation/map_screen.dart';
+import '../../ranking/presentation/ranking_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,7 +12,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
-  final HomeScreenController _controller = HomeScreenController();
+  static const List<Widget> _destinations = [
+    MapScreen(),
+    RankingScreen(),
+    AdminScreen(),
+  ];
+
+  int _currentIndex = 0;
   bool _wasInBackground = false;
 
   @override
@@ -55,12 +62,29 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    final pokemons = _controller.getPokemons();
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          for (final pokemon in pokemons) PokemonCard(pokemon: pokemon),
+      body: IndexedStack(index: _currentIndex, children: _destinations),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
+          setState(() => _currentIndex = index);
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.map_outlined),
+            selectedIcon: Icon(Icons.map),
+            label: 'Mapa',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.leaderboard_outlined),
+            selectedIcon: Icon(Icons.leaderboard),
+            label: 'Ranking',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.admin_panel_settings_outlined),
+            selectedIcon: Icon(Icons.admin_panel_settings),
+            label: 'Admin',
+          ),
         ],
       ),
     );

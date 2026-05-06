@@ -19,9 +19,9 @@ class Day3DemoTile extends StatelessWidget {
       subtitle: subtitle.isEmpty ? null : Text(subtitle),
       trailing: const Icon(Icons.chevron_right),
       onTap: () {
-        Navigator.of(context).push<void>(
-          MaterialPageRoute<void>(builder: (_) => screen),
-        );
+        Navigator.of(
+          context,
+        ).push<void>(MaterialPageRoute<void>(builder: (_) => screen));
       },
     );
   }
