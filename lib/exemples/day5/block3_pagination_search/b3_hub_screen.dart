@@ -4,8 +4,8 @@ import 'package:pokedex/exemples/day3/widgets/block_hub.dart';
 import 'pagination_screen.dart';
 import 'search_screen.dart';
 
-class Day4B5HubScreen extends StatelessWidget {
-  const Day4B5HubScreen({super.key});
+class Day5B3HubScreen extends StatelessWidget {
+  const Day5B3HubScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
