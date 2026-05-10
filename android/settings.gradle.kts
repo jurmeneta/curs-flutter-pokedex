@@ -23,4 +23,8 @@ plugins {
     id("org.jetbrains.kotlin.android") version "2.2.20" apply false
 }
 
+// Nom únic per evitar conflictes quan diversos projectes Flutter comparteixen workspace
+// (“A project with the name android already exists” / Duplicate root element).
+rootProject.name = "pokedex_android"
+
 include(":app")
