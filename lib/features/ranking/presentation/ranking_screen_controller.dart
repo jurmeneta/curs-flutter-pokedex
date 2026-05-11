@@ -1,9 +1,18 @@
+import '../../admin/domain/pokemon_model.dart';
 import '../data/pokemon_repository.dart';
 
 class RankingScreenController {
-  final PokemonRepository _repository = PokemonRepository();
+  RankingScreenController({PokemonRepository? repository})
+    : _repository = repository ?? PokemonRepository();
 
-  Future<List<String>> fetchPokemonNames() {
-    return _repository.fetchPokemonNames();
+  final PokemonRepository _repository;
+
+  Future<List<Pokemon>> fetchPokemonPage({
+    required int limit,
+    required int offset,
+  }) {
+    return _repository.fetchPokemonPage(limit: limit, offset: offset);
   }
+
+  void dispose() => _repository.close();
 }
