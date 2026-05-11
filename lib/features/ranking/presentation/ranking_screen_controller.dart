@@ -1,10 +1,9 @@
 import '../data/pokemon_repository.dart';
-import '../../admin/domain/pokemon_model.dart';
 
 class RankingScreenController {
-  RankingScreenController();
+  final PokemonRepository _repository = PokemonRepository();
 
-  List<Pokemon> getPokemons() {
-    return const PokemonRepository().getPokemons();
+  Future<List<String>> fetchPokemonNames() {
+    return _repository.fetchPokemonNames();
   }
 }

@@ -37,7 +37,23 @@ class _AdminScreenState extends State<AdminScreen> {
   }
 
   Future<void> _pickImage(ImageSource source) async {
-    final file = await _imagePicker.pickImage(source: source);
+    final XFile? file;
+    try {
+      file = await _imagePicker.pickImage(source: source);
+    } on PlatformException catch (e) {
+      if (!mounted) return;
+      final message = switch (e.code) {
+        'camera_access_denied' =>
+          'S’ha denegat l’accés a la càmera. Pots activar-lo als ajustos de l’app.',
+        'photo_access_denied' =>
+          'S’ha denegat l’accés a la fototeca. Pots activar-lo als ajustos de l’app.',
+        _ => 'No s’ha pogut obrir la imatge (${e.code}).',
+      };
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)),
+      );
+      return;
+    }
     if (!mounted || file == null) return;
 
     final bytes = await file.readAsBytes();

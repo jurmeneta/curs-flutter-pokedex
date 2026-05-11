@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     AdminScreen(),
   ];
 
-  int _currentIndex = 2;
+  int _currentIndex = 1;
   bool _wasInBackground = false;
 
   @override
