@@ -4,8 +4,8 @@ import 'package:pokedex/exemples/day3/widgets/block_hub.dart';
 import 'flutter_basic_translations_screen.dart';
 import 'slang_translations_screen.dart';
 
-class Day5B6HubScreen extends StatelessWidget {
-  const Day5B6HubScreen({super.key});
+class Day6B6HubScreen extends StatelessWidget {
+  const Day6B6HubScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

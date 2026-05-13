@@ -5,7 +5,7 @@ part 'guards_navigation_screen.gr.dart';
 
 @AutoRouterConfig(
   generateForDir: [
-    'lib/exemples/day5/block5_navigation/guards_navigation_screen',
+    'lib/exemples/day6/block5_navigation/guards_navigation_screen',
   ],
 )
 class GuardsNavigationScreen extends StatefulWidget {

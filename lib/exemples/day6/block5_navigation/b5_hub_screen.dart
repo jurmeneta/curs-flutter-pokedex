@@ -5,8 +5,8 @@ import 'basic_navigation_screen.dart';
 import 'guards_navigation_screen.dart';
 import 'tabs_navigation_screen.dart';
 
-class Day5B5HubScreen extends StatelessWidget {
-  const Day5B5HubScreen({super.key});
+class Day6B5HubScreen extends StatelessWidget {
+  const Day6B5HubScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

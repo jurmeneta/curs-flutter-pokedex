@@ -4,14 +4,14 @@
 # *no* el llegeix slang, i el bloc `slang:` que pugui haver-hi a `pubspec.yaml`
 # no té cap efecte.
 #
-# Quan s'editin els fitxers `lib/exemples/day5/block6_translations/i18n/*.json`
+# Quan s'editin els fitxers `lib/exemples/day6/block6_translations/i18n/*.json`
 # cal regenerar les traduccions amb:
 #
 #     dart run slang
 
 base_locale: en
 fallback_strategy: base_locale
-input_directory: lib/exemples/day5/block6_translations/i18n
+input_directory: lib/exemples/day6/block6_translations/i18n
 flutter_integration: true
 # Sense això slang fa imports `deferred` de les locales no-base i un
 # `setLocaleSync(AppLocale.ca)` falla amb `_DeferredNotLoadedError`.

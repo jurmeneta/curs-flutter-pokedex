@@ -3,8 +3,10 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+part 'riverpod_dio_post_screen.freezed.dart';
 part 'riverpod_dio_post_screen.g.dart';
 
 class RiverpodDioPostScreen extends StatelessWidget {
@@ -16,18 +18,15 @@ class RiverpodDioPostScreen extends StatelessWidget {
   }
 }
 
-class Post {
-  const Post({required this.id, required this.title, required this.body});
+@freezed
+abstract class Post with _$Post {
+  const factory Post({
+    required int id,
+    required String title,
+    required String body,
+  }) = _Post;
 
-  final int id;
-  final String title;
-  final String body;
-
-  factory Post.fromJson(Map<String, dynamic> json) => Post(
-    id: json['id'] as int,
-    title: json['title'] as String,
-    body: json['body'] as String,
-  );
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 }
 
 class JsonPlaceholderPostsRepository {

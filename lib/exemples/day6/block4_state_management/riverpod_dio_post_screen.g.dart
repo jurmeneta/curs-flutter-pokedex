@@ -3,6 +3,22 @@
 part of 'riverpod_dio_post_screen.dart';
 
 // **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_Post _$PostFromJson(Map<String, dynamic> json) => _Post(
+  id: (json['id'] as num).toInt(),
+  title: json['title'] as String,
+  body: json['body'] as String,
+);
+
+Map<String, dynamic> _$PostToJson(_Post instance) => <String, dynamic>{
+  'id': instance.id,
+  'title': instance.title,
+  'body': instance.body,
+};
+
+// **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 

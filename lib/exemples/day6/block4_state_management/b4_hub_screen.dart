@@ -6,8 +6,8 @@ import 'riverpod_dio_post_screen.dart';
 import 'riverpod_generator_counter_screen.dart';
 import 'riverpod_manual_counter_screen.dart';
 
-class Day5B4HubScreen extends StatelessWidget {
-  const Day5B4HubScreen({super.key});
+class Day6B4HubScreen extends StatelessWidget {
+  const Day6B4HubScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
