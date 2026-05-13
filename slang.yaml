@@ -1,5 +1,5 @@
-base_locale: en
+base_locale: ca
 fallback_strategy: base_locale
-input_directory: lib/exemples/day6/block6_translations/i18n
+input_directory: lib/i18n
 flutter_integration: true
 lazy: false

@@ -60,7 +60,7 @@ class _TranslationsBody extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(t.welcome),
                     const SizedBox(height: 8),
-                    Text(t.itemsCount(n: 3)),
+                    Text(t.itemsCount(n: 5)),
                   ],
                 ),
               ),

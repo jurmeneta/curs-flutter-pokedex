@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pokedex/core/router/app_router.dart';
 import 'package:pokedex/core/theme/app_theme.dart';
-import 'package:pokedex/features/authentication/presentation/loading_screen.dart'; // ignore: unused_import
-import 'package:pokedex/features/home/presentation/home_screen.dart'; // ignore: unused_import
+import 'package:pokedex/features/settings/application/theme_mode_service.dart';
+import 'package:pokedex/i18n/strings.g.dart';
 
-import 'exemples/day1/day1_hub_screen.dart'; // ignore: unused_import
-import 'exemples/day2/day2_hub_screen.dart'; // ignore: unused_import
-import 'exemples/day3/day3_hub_screen.dart'; // ignore: unused_import
-import 'exemples/day4/day4_hub_screen.dart'; // ignore: unused_import
-import 'exemples/day5/day5_hub_screen.dart'; // ignore: unused_import
-import 'exemples/day6/day6_hub_screen.dart'; // ignore: unused_import
+final appRouter = AppRouter();
 
 void main() {
-  runApp(const PokedexApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  LocaleSettings.setLocaleSync(AppLocale.ca);
+  runApp(
+    ProviderScope(
+      child: TranslationProvider(child: const PokedexApp()),
+    ),
+  );
 }
 
-class PokedexApp extends StatelessWidget {
+class PokedexApp extends ConsumerWidget {
   const PokedexApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModePreferenceProvider);
+    final locale = TranslationProvider.of(context).flutterLocale;
+
+    return MaterialApp.router(
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
-      home: const Day6HubScreen(),
-      // home: const LoadingScreen(),
+      themeMode: themeMode,
+      locale: locale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      routerConfig: appRouter.config(),
     );
   }
 }

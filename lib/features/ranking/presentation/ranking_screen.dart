@@ -103,24 +103,21 @@ class _RankingScreenState extends State<RankingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Ranking')),
-      body: RefreshIndicator(
-        onRefresh: _refresh,
-        child: ListView.builder(
-          controller: _scroll,
-          itemCount: _items.length + 1,
-          itemBuilder: (context, i) {
-            if (i == _items.length) {
-              return _RankingFooter(
-                loading: _loading,
-                error: _error,
-                hasMore: _hasMore,
-              );
-            }
-            return PokemonCard(pokemon: _items[i]);
-          },
-        ),
+    return RefreshIndicator(
+      onRefresh: _refresh,
+      child: ListView.builder(
+        controller: _scroll,
+        itemCount: _items.length + 1,
+        itemBuilder: (context, i) {
+          if (i == _items.length) {
+            return _RankingFooter(
+              loading: _loading,
+              error: _error,
+              hasMore: _hasMore,
+            );
+          }
+          return PokemonCard(pokemon: _items[i]);
+        },
       ),
     );
   }

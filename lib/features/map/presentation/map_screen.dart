@@ -31,41 +31,35 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Mapa')),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final viewportSize = Size(
-            constraints.maxWidth,
-            constraints.maxHeight,
-          );
-          final mapSize = MapScreenController.layoutMapSize(viewportSize);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final viewportSize = Size(constraints.maxWidth, constraints.maxHeight);
+        final mapSize = MapScreenController.layoutMapSize(viewportSize);
 
-          return PannableMap(
-            mapSize: mapSize,
-            viewportSize: viewportSize,
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/images/map.jpg',
-                  width: mapSize.width,
-                  height: mapSize.height,
-                  fit: BoxFit.cover,
-                  filterQuality: FilterQuality.medium,
+        return PannableMap(
+          mapSize: mapSize,
+          viewportSize: viewportSize,
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/images/map.jpg',
+                width: mapSize.width,
+                height: mapSize.height,
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.medium,
+              ),
+              for (final placement in _placements)
+                PokemonMapMarker(
+                  placement: placement,
+                  mapSize: mapSize,
+                  onTap: _onPokemonTap,
+                  size: 40,
+                  opacity: 0.7,
                 ),
-                for (final placement in _placements)
-                  PokemonMapMarker(
-                    placement: placement,
-                    mapSize: mapSize,
-                    onTap: _onPokemonTap,
-                    size: 40,
-                    opacity: 0.7,
-                  ),
-              ],
-            ),
-          );
-        },
-      ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
