@@ -6,6 +6,7 @@ import 'package:pokedex/i18n/strings.g.dart';
 import '../../admin/presentation/admin_screen.dart';
 import '../../map/presentation/map_screen.dart';
 import '../../ranking/presentation/ranking_screen.dart';
+import '../../what_is_your_pokemon/presentation/what_is_your_pokemon_screen.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     MapScreen(),
     RankingScreen(),
     AdminScreen(),
+    WhatIsYourPokemonScreen(),
   ];
 
   int _currentIndex = 0;
@@ -68,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final titles = [t.homeMap, t.homeRanking, t.homeAdmin];
+    final titles = [t.homeMap, t.homeRanking, t.homeAdmin, t.whatIsYourPokemon];
 
     return Scaffold(
       appBar: AppBar(
@@ -102,6 +104,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             icon: const Icon(Icons.admin_panel_settings_outlined),
             selectedIcon: const Icon(Icons.admin_panel_settings),
             label: t.homeAdmin,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.question_mark_outlined),
+            selectedIcon: const Icon(Icons.question_mark),
+            label: t.whatIsYourPokemon,
           ),
         ],
       ),

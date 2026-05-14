@@ -12,5 +12,8 @@
   "settingsTooltip": "Configuració",
   "welcomeBackTitle": "Benvingut de nou",
   "welcomeBackBody": "Ens alegra tornar-te a veure.",
-  "ok": "D'acord"
+  "ok": "D'acord",
+  "whatIsYourPokemon": "Quin és el teu Pokémon?",
+  "enterYourPokemon": "Introdueix el teu Pokémon:",
+  "typeHere": "Escriu aquí..."
 }

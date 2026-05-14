@@ -71,6 +71,9 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	/// ca: 'Admin'
 	String get homeAdmin => 'Admin';
 
+  /// ca: 'Quin és el teu Pokémon?'
+	String get whatIsYourPokemon => 'Quin és el teu Pokémon?';
+
 	/// ca: 'Configuració'
 	String get settingsTooltip => 'Configuració';
 
