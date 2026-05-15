@@ -14,6 +14,7 @@ class WhatIsYourPokemonScreen extends StatefulWidget {
 
 class _WhatIsYourPokemonScreenState extends State<WhatIsYourPokemonScreen> {
   final TextEditingController _nomController = TextEditingController();
+  int? _idPokemon;
 
   @override
   void dispose() {
@@ -32,6 +33,11 @@ class _WhatIsYourPokemonScreenState extends State<WhatIsYourPokemonScreen> {
       suma_caracters += char;
     }
     int pokemonId = (suma_caracters % 1025) + 1;
+    //Aquí interessa actualitzar el valor del id Pokemon per poder-lo mostrar
+    //per pantalla en un text widget, seria com un repaint en el canvas de java
+    setState(() {
+      _idPokemon = pokemonId;
+    });
 
     print('Pokemon ID: $pokemonId'); // Mostra el id per consola
   }
@@ -56,6 +62,9 @@ class _WhatIsYourPokemonScreenState extends State<WhatIsYourPokemonScreen> {
               onPressed: _calculaPokemonId,
               child: Text('Cercar el teu Pokemon!'),
             ),
+            if (_idPokemon != null) ...[
+              Text('El teu Pokemon és el número: $_idPokemon'),
+            ],
           ],
         ),
       ),
