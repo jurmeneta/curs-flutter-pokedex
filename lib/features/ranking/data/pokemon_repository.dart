@@ -107,4 +107,19 @@ class PokemonRepository {
         )
         .join(' ');
   }
+
+  //la idea és obtenir un pokemon per id, igual que es fa en el llistat amb un Future
+  //però en vers de tenir varis, tenir-ne un.
+  Future<Pokemon> obtenirPokemonPerId(int id) async {
+    final resultat = await _dio.get('/pokemon/$id');
+
+    if (resultat.statusCode != 200 || resultat.data == null) {
+      throw DioException(
+        requestOptions: resultat.requestOptions,
+        message: 'Pokemon no trobat segons el ID (${resultat.statusCode})',
+      );
+    }
+
+    return _pokemonFromPokeApiDetail(resultat.data!);
+  }
 }
